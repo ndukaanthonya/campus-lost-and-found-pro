@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNN Lost & Found System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-search-location"></i>
+                    <h1>UNN Lost & Found</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="/manage.html" class="nav-link admin-link">Admin Portal</a>
+                </div>
+                <button class="theme-btn" id="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i> <span>Dark Mode</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Find What You've Lost</h2>
+                <p>University of Nigeria, Nsukka - Official Recovery Hub (GS Building)</p>
+                
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search keys, phones, IDs...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3 id="active-count">0</h3>
+                        <p>Active Items</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="claimed-count">0</h3>
+                        <p>Successfully Claimed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-clock"></i> Recently Found Items</h2>
+                <p>Visit the GS Building Security Office to claim these.</p>
+            </div>
+            <div class="items-grid" id="items-grid">
+                <div class="no-items">Loading items...</div>
+            </div>
+        </section>
+
+        <section class="section claimed-items">
+            <div class="section-header">
+                <h2><i class="fas fa-check-circle"></i> Recently Claimed</h2>
+            </div>
+            <div class="items-grid claimed-grid" id="claimed-grid">
+                </div>
+        </section>
+
+        <section class="info-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> How Retrieval Works</h2>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-search"></i></div>
+                    <h3>1. Search</h3>
+                    <p>Use the search bar above to check if your missing item has been registered.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-hand-point-up"></i></div>
+                    <h3>2. Reserve</h3>
+                    <p>Click "Claim This Item" to notify us. This reserves the item for 24 hours.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>3. Verify</h3>
+                    <p>Visit the GS Building with your School ID to prove ownership and collect it.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="margin-top: 40px;">
+             <div class="map-frame">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.270311234567!2d7.404567!3d6.867034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044e8a600000001%3A0x6d36809805060438!2sUniversity%20of%20Nigeria%2C%20Nsukka!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://goo.gl/maps/YourUNNLink" target="_blank" class="claim-btn">📍 Get Directions to GS Building</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal hidden" id="reservation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-bookmark"></i> Reserve Item</h3>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; font-size: 0.9rem; color: #666;">
+                    Please provide your details. You must bring your ID to the office to complete the claim.
+                </p>
+                <form id="reservation-form">
+                    <input type="hidden" id="reservation-item-id">
+                    <input type="hidden" id="reservation-item-name">
+                    
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="full-name" placeholder="e.g. Chinedu Okeke" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Identity Type</label>
+                        <select id="user-type" required>
+                            <option value="">Select...</option>
+                            <option value="Student">Student</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Visitor">Visitor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Contact Info</label>
+                        <input type="text" id="contact-info" placeholder="Phone Number or School Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Proof of Ownership</label>
+                        <textarea id="reservation-comment" rows="3" placeholder="Describe a unique feature (e.g. 'Red screen saver', 'Dent on back')." required></textarea>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn-secondary" id="cancel-reservation">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UNN Lost & Found</h3>
+                    <p>Reuniting items with owners since 2026.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Security Office, GS Building</p>
+                    <p><i class="fas fa-envelope"></i> help@unn-lostfound.edu.ng</p>
+                </div>
+            </div>
+            <p class="footer-note">Note: Only authorized personnel can report found items.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

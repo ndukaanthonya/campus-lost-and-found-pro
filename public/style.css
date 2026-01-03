@@ -1,0 +1,513 @@
+/* style.css - Clean & Indented Version */
+
+/* =========================================
+   1. GLOBAL VARIABLES (THEME CONFIG)
+   ========================================= */
+   :root {
+    /* Brand Colors */
+    --unn-green: #2e7d32;
+    --unn-green-dark: #1b5e20;
+    --unn-gold: #ffc107;
+    
+    /* Light Theme Colors */
+    --bg-color: #f4f7f6;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --border-color: #dddddd;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Overrides */
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --header-bg: #1e1e1e;
+    --border-color: #333333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   2. BASE RESET
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION
+   ========================================= */
+.header {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    color: var(--unn-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--unn-green);
+}
+
+.admin-link {
+    color: var(--unn-green);
+    border: 1px solid var(--unn-green);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   4. HERO SECTION (BANNER)
+   ========================================= */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1rem;
+}
+
+#search-btn {
+    background: var(--unn-green);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#search-btn:hover {
+    background: var(--unn-green-dark);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.stat h3 {
+    font-size: 2rem;
+    color: var(--unn-gold);
+    margin: 0;
+}
+
+/* =========================================
+   5. ITEMS GRID & CARDS
+   ========================================= */
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    color: var(--unn-green);
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.item-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border-top: 5px solid var(--unn-green);
+    transition: transform 0.3s;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+}
+
+.item-header {
+    background: rgba(46, 125, 50, 0.1);
+    color: var(--unn-green);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.item-body {
+    padding: 20px;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.item-detail {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.item-footer {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.claim-btn {
+    background: var(--unn-green);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.claim-btn:hover {
+    background: var(--unn-green-dark);
+}
+
+.claim-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.claimed-card {
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+/* =========================================
+   6. MODAL (POPUP FORM)
+   ========================================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    flex: 2;
+    background: var(--unn-green);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =========================================
+   7. INFO CARDS & MAP
+   ========================================= */
+.info-section {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-card {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    color: var(--unn-green);
+    margin-bottom: 10px;
+}
+
+.map-frame {
+    border: 4px solid var(--unn-green);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 400px;
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+.footer {
+    background: var(--unn-green);
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer p {
+    opacity: 0.9;
+}
+
+.footer-note {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* =========================================
+   9. ADMIN PORTAL (Center Login & Sidebar)
+   ========================================= */
+.admin-body {
+    height: 100vh;
+}
+
+/* Center Login */
+.login-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--unn-green), #1b5e20);
+}
+
+.login-card {
+    background: var(--card-bg);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.admin-sidebar {
+    width: 260px;
+    background: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.admin-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: var(--bg-color);
+}
+
+.admin-nav-btn {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.admin-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.admin-nav-btn.active {
+    background: var(--unn-green);
+    color: white;
+    border-bottom: none;
+}
