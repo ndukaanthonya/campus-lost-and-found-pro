@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+#toggle-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    background-color: #111;
+    position: fixed; /* Stays in place when scrolling */
+    top: 0;
+    left: -250px; /* Hides it off-screen initially */
+    transition: 0.3s; /* Smooth sliding animation */
+    padding-top: 60px;
+}
+
+/* Links inside sidebar */
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+#close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* The class we will add via JavaScript */
+.sidebar.active {
+    left: 0; /* Brings it back on screen */
+}

@@ -1,0 +1,41 @@
+body {
+    background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background: steelblue;
+    margin: 0;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+#container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.square {
+    width: 30%;
+    background: purple;
+    padding-bottom: 30%; /* Makes it a perfect square */
+    float: left;
+    margin: 1.66%;
+    border-radius: 15%;
+    cursor: pointer;
+    transition: background 0.6s;
+}
+
+#stripe {
+    background: white;
+    height: 30px;
+    text-align: center;
+    color: black;
+}
+
+#color-display {
+    font-size: 200%;
+}
